@@ -179,3 +179,4 @@ int main() {
             break;  // Termina se a entrada for EOF (Ctrl+D)
         }
     }
+}
