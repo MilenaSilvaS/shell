@@ -46,8 +46,8 @@ void exibir_historial() {
     if (history_index == 0) {
         printf("Nenhum comando no histórico.\n");
     } else {
-        for (int i = 0; i < history_index; i++) {
-            printf("%d %s\n", i + 1, history[i]);
+        for (int i = history_index - 1; i >= 0; i--) {
+            printf("%d %s\n", history_index - i, history[i]);
         }
     }
 }
@@ -88,8 +88,11 @@ void executar_comando(char *comando) {
     if (strncmp(comando, "!", 1) == 0) {
         if (strcmp(comando, "!!") == 0) {
             if (history_index > 0) {
-                printf("Executando último comando: %s\n", history[history_index - 1]);
-                executar_comando(history[history_index - 1]);
+                char *ultimo_comando = strdup(history[history_index - 1]);
+                printf("Executando ultimo comando: %s\n", ultimo_comando);
+                adicionar_ao_historial(ultimo_comando);
+                executar_comando(ultimo_comando);
+                free(ultimo_comando);
             } else {
                 printf("Nenhum comando no histórico.\n");
             }
@@ -176,7 +179,3 @@ int main() {
             break;  // Termina se a entrada for EOF (Ctrl+D)
         }
     }
-
-    liberar_historial();  // Libera o histórico antes de sair
-    return 0;
-}
