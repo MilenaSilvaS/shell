@@ -18,6 +18,8 @@ Comandos disponíveis:
 - `!!`: Executa o último comando.
 - `!N`: Executa o N-ésimo comando do histórico.
 - `exit`: Encerra o shell.
+-  `Top`:Monitora processos em tempo real.
+-  `date`: Exibi ou configura a data e hora do sistema.
 
 ## Contribuição
 Sinta-se à vontade para enviar pull requests ou relatar problemas na aba de issues.
