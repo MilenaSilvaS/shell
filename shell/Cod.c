@@ -47,7 +47,7 @@ void exibir_historial() {
         printf("Nenhum comando no histórico.\n");
     } else {
         for (int i = history_index - 1; i >= 0; i--) {
-            printf("%d %s\n", history_index - i, history[i]);
+            printf("%d %s\n", i + 1, history[i]);
         }
     }
 }
